@@ -7,11 +7,17 @@ import reducer from './reducers';
 
 import App from './App'
 import { BrowserRouter as Router } from 'react-router-dom';
+import rootReducer from './reducers'
 import './index.css';
 
+const store=createStore(rootReducer)
+
 ReactDOM.render(
-  <Router>
+  <Provider store={store}>
+    <Router>
       <App />
-  </Router>,
+    </Router>,
+  </Provider>
   document.getElementById('root')
 );
+
